@@ -7,7 +7,7 @@ object AverageWordCount {
     val sc = new SparkContext(conf)
 
     val input = sc.textFile("/path/to/inputFile")
-    val wordsRDD = input.flatMap(line => line.split(" ")).map(x => (x,1));
+    val wordsRDD = input.flatMap(line => line.split("[\\s\\.\\,\\:\\,]+")).map(x => (x,1));
     val wordCount = wordsRDD.combineByKey(
       (v) => (v, 1),    // collect the values into tuples
       (acc: (Int, Int), v) => (acc._1 + v, acc._2 + 1),  // perform aggregation of values and keys
