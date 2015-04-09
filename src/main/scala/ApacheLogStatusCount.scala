@@ -11,9 +11,6 @@ object ApacheLogStatusCount {
     val errorStatusRDD = inputLogRDD.filter(line => line.contains("404"))
     val errorStatusCount = errorStatusRDD.count()
 
-
-
-
   }
 }
 
