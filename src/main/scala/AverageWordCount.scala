@@ -13,8 +13,6 @@ object AverageWordCount {
       (acc: (Int, Int), v) => (acc._1 + v, acc._2 + 1),  // perform aggregation of values and keys
       (acc1: (Int, Int), acc2: (Int, Int)) => (acc1._1 + acc2._1, acc1._2 + acc2._2)  // collect results from the partitions
     ).map{case (key, value) => (key, value._1 / value._2.toFloat) }  // map into word and its average
-    val result = wordCount.collectAsMap()
-    result.saveAsTextFile("/path/to/wordCount.txt")
 
   }
 }
