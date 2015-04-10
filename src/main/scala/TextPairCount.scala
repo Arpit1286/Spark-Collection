@@ -3,7 +3,7 @@ import org.apache.spark.{SparkContext, SparkConf}
 // this gives seriliazation exception, look deep into it
 //class TextPair(var first: String, var second: String) {
 //  val returnTuple = (first, second)
-//}
+//}  try using 'case class' to see if it works
 
 object TextPairCount {
   def main(args: Array[String]) {
