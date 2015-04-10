@@ -12,11 +12,12 @@ object ApacheLogCompare {
     val parts = logLines.split(" ")  // try building it with regex, it will work here as everything is String type
     val IP = parts(0)
     val timeStamp = parts(3)
-    val request = parts(4)
+    val request = parts(9)
     Events(IP, timeStamp, request)
   }
 
   val event = logInput.map(line => parse(line))
   val distinctEvents = event.distinct()
+  distinctEvents.saveAsTextFile("/path/to/textFile")
 }
 
