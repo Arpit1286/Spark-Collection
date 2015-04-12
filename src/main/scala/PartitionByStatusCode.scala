@@ -22,7 +22,7 @@ object PartitionByStatusCode {
     val statusCode = input.map(line => getStatusCode(line)).collect.distinct  // get all the unique status codes
     val partitionedInput = input.map(line => (line.split(" ")(7),line)).partitionBy(new StatusCodePartitioner(statusCode.length))\
   }
-
+// this is redundant but still used
   def getStatusCode(input: String): Int = {
     val status = input.split(" ")(7).toInt
     status
