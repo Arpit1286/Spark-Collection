@@ -10,7 +10,7 @@ object StreamingExample {
 
     val conf = new SparkConf().setAppName("kafkaStreamWriter")
     val ssc = new StreamingContext(conf, Seconds(2))
-    val kafkaStream = KafkaUtils.createStream(ssc, 3, , 1 )
+    // val kafkaStream = KafkaUtils.createStream(ssc, 3, , 1 )
   }
 }
 
