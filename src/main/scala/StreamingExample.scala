@@ -1,8 +1,8 @@
 import org.apache.spark.SparkConf
 import org.apache.spark.streaming.{Seconds, StreamingContext}
-import org.apache.spark.streaming.
+import org.apache.spark.streaming.kafka.
 
-// reading from Kafka and writing into local disk
+// reading from Kafka and writing to local disk
 
 
 object StreamingExample {
