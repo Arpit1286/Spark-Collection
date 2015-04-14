@@ -12,6 +12,9 @@ val webClient = new Builder(42, "licenseKey").build()
 object GeoLocationLookup {
 
   // geolookup method, yet to add exception cases
+
+  // to be added, 1. make sure the IP string is correct
+  // 2. make sure null values returned are taken care of
   def geoLookup(IP: String): location ={
     val IPAddress = new InetAddress(getByName(IP))
     val insights = webClient.insights(IPAddress)
