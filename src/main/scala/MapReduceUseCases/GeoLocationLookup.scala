@@ -1,3 +1,4 @@
+package MapReduceUseCases
 import java.net.InetAddress
 import java.net.InetAddress.getByName
 import com.maxmind.geoip2.WebServiceClient.Builder
