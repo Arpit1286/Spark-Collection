@@ -2,15 +2,11 @@ import java.net.InetAddress
 import java.net.InetAddress.getByName
 import com.maxmind.geoip2.WebServiceClient.Builder
 
-case class location(CountryCode: String, Country: String, City: String, region: String, postalCode: String)
-
-// call the webservice client
-
-val webClient = new Builder(42, "licenseKey").build()
-
 // naive implementation
 object GeoLocationLookup {
-
+  // call the webservice client
+  val webClient = new Builder(42, "licenseKey").build()
+  case class location(CountryCode: String, Country: String, City: String, region: String, postalCode: String)
   // geolookup method, yet to add exception cases
 
   // to be added, 1. make sure the IP string is correct
