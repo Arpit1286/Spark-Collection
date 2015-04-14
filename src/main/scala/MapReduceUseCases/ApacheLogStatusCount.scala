@@ -1,4 +1,6 @@
-import org.apache.spark.{SparkContext, SparkConf}
+package MapReduceUseCases
+
+import org.apache.spark.{SparkConf, SparkContext}
 
 object ApacheLogStatusCount {
   def main(args: Array[String]) {

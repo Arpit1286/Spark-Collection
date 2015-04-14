@@ -1,6 +1,8 @@
+package MapReduceUseCases
+
 // compare if two log events are same
 
-import org.apache.spark.{SparkContext, SparkConf}
+import org.apache.spark.{SparkConf, SparkContext}
 
 case class Events(IP: String, timeStamp: String, request: String)
 

@@ -1,6 +1,7 @@
+package MapReduceUseCases
+
 import org.apache.spark.SparkConf
 import org.apache.spark.streaming.{Seconds, StreamingContext}
-import org.apache.spark.streaming.kafka._
 
 // reading from Kafka and writing to local disk
 

@@ -1,5 +1,7 @@
+package MapReduceUseCases
+
 // Partition by status code from Apache logs
-import org.apache.spark.{Partitioner, SparkContext, SparkConf}
+import org.apache.spark.{Partitioner, SparkConf, SparkContext}
 
 
 class StatusCodePartitioner(partitions: Int) extends Partitioner {
