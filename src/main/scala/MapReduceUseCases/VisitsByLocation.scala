@@ -4,7 +4,7 @@ package MapReduceUseCases
 
 object VisitsByLocation {
 
-  val
+  val task = null
 
 }
 
