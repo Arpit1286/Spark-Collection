@@ -15,6 +15,7 @@ object GeoLocationLookup {
 
   // to be added, 1. make sure the IP string is correct
   // 2. make sure null values returned are taken care of
+  // 3. Add none options
   def geoLookup(IP: String): location ={
     val IPAddress = new InetAddress(getByName(IP))
     val insights = webClient.insights(IPAddress)
