@@ -15,7 +15,7 @@ case class HttpLogStringParser(ip: String,
 
 object HttpLogStringParser {
   // regular expression for the log format used. minor variations in the format would require this to change
-  val pattern = """^([\d.]+) (\S+) (\S+) \[(.*)\] \"([^\s]+) (/[^\s]*) HTTP/[^\\s]+\" (\d{3}) (\d+) \"([^\"]+)\" \"([^\"]+)\"$""".r
+  val pattern = """^([\d.]+) (\S+) (\S+) \[(.*)\] \"(.+?)\" (\d{3}) (\d+) \"(\S+)\" \"([^\"]+)\"$""".r
   def getHttpLogString(logLine: String) = logLine match {
     case pattern(ip,
     rfc1413,
@@ -32,7 +32,8 @@ object HttpLogStringParser {
       requestLine,
       statusCode.toInt,
       size.toDouble,
-      referer,browserInfo))
+      referer,
+      browserInfo))
     case _ => None
   }
 }
