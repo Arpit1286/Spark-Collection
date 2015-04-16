@@ -21,7 +21,8 @@ object PartitionByStatusCode {
 
     val input = sc.textFile("/path/to/LogFile")
     val statusCode = input.map(line => getStatusCode(line)).collect.distinct  // get all the unique status codes
-    val partitionedInput = input.map(line => (line.split(" ")(7),line)).partitionBy(new StatusCodePartitioner(statusCode.length))\
+    // this makes sure that each key goes to its own partition, the keys are status code
+    val partitionedInput = input.map(line => (line.split(" ")(7),line)).partitionBy(new StatusCodePartitioner(statusCode.length))
   }
 // this is redundant but I still use it
   def getStatusCode(input: String): Int = {
