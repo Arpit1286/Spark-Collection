@@ -1,10 +1,8 @@
 // secondary sort in Spark
 package MapReduceUseCases
+import common.parsers.HttpLogStringParser
 
 import org.apache.spark.{SparkContext, SparkConf}
-import java.text.SimpleDateFormat
-
-import org.joda.time.DateTime
 
 
 object SortIPandTimestamp {
@@ -12,7 +10,8 @@ object SortIPandTimestamp {
   val sc = new SparkContext(conf)
 
   // composite key sorted by timestamp
-
+  val input = sc.textFile("/path/to/Input")
+  val
 
 
 }

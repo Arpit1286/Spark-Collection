@@ -25,7 +25,14 @@ object HttpLogStringParser {
     statusCode,
     size,
     referer,
-    browserInfo) => Some(HttpLogStringParser(ip, rfc1413, userID, timeStamp.toDateTime, requestLine,statusCode.toInt,size.toDouble,referer,browserInfo))
+    browserInfo) => Some(HttpLogStringParser(ip,
+      rfc1413,
+      userID,
+      timeStamp.toDateTime,
+      requestLine,
+      statusCode.toInt,
+      size.toDouble,
+      referer,browserInfo))
     case _ => None
   }
 }
