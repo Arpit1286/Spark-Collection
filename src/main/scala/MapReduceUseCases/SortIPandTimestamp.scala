@@ -4,6 +4,8 @@ package MapReduceUseCases
 import org.apache.spark.{SparkContext, SparkConf}
 import java.text.SimpleDateFormat
 
+import org.joda.time.DateTime
+
 
 object SortIPandTimestamp {
   val conf = new SparkConf().setAppName("SortByCompositeKey")
@@ -15,5 +17,5 @@ object SortIPandTimestamp {
 
 }
 
-case class compositeKey(IP: String, TimeStamp: DateTime)
+case class compositeKey(IP: String, TimeStamp: String)
 
