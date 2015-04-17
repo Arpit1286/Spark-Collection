@@ -1,8 +1,52 @@
 package common.parsers
 
-import com.github.nscala_time.time.Imports._
+// import com.github.nscala_time.time.Imports._ // get a string from here since it is a general class
 
-case class HttpLogStringParser(ip: String,
+class HttpLogStringParser(logLine: String) {
+  // Regex Pattern matching the logLine
+  val pattern = """^([\d.]+) (\S+) (\S+) \[(.*)\] \"(.+?)\" (\d{3}) (\d+) \"(\S+)\" \"([^\"]+)\"$""".r
+  val matched = pattern.findFirstMatchIn(logLine)
+
+  def getIP: String = {
+    val IP = matched match {
+      case Some(m) => m.group(1)
+      case _ => None
+    }
+    IP.toString
+  }
+
+  def getTimeStamp: String = {
+    val timeStamp = matched match {
+      case Some(m) => m.group(4)
+      case _ => None
+    }
+    timeStamp.toString
+  }
+
+  def getRequestPage: String = {
+    val requestPage = matched match {
+      case Some(m) => m.group(5)
+      case _ => None
+    }
+    requestPage.toString
+  }
+
+  def getStatusCode: String = {
+    val statusCode = matched match {
+      case Some(m) => m.group(6)
+      case _ => None
+    }
+    statusCode.toString
+  }
+}
+
+
+
+
+
+
+
+/* case class HttpLogStringParser(ip: String,
                                RFC1413: String,
                                UserID: String,
                                TimeStamp: DateTime,
@@ -37,3 +81,5 @@ object HttpLogStringParser {
     case _ => None
   }
 }
+
+*/
