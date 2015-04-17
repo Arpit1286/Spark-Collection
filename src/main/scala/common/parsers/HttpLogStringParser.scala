@@ -1,7 +1,8 @@
 package common.parsers
 
-// import com.github.nscala_time.time.Imports._ // get a string from here since it is a general class
+import com.github.nscala_time.time.Imports._
 
+// takes in the logLine and can be called to return IP, timestamp, requestPage and statusCode as strings
 class HttpLogStringParser(logLine: String) {
   // Regex Pattern matching the logLine
   val pattern = """^([\d.]+) (\S+) (\S+) \[(.*)\] \"(.+?)\" (\d{3}) (\d+) \"(\S+)\" \"([^\"]+)\"$""".r
@@ -15,12 +16,12 @@ class HttpLogStringParser(logLine: String) {
     IP.toString
   }
 
-  def getTimeStamp: String = {
+  def getTimeStamp: DateTime = {
     val timeStamp = matched match {
       case Some(m) => m.group(4)
       case _ => None
     }
-    timeStamp.toString
+    stringToDate(timeStamp.toString)
   }
 
   def getRequestPage: String = {
@@ -38,12 +39,13 @@ class HttpLogStringParser(logLine: String) {
     }
     statusCode.toString
   }
+
+  // change here for a different date Time string
+  def stringToDate(timeStampString: String): DateTime = {
+    val timeStamp = DateTime.parse(timeStampString.replace("\'",""))
+    timeStamp
+  }
 }
-
-
-
-
-
 
 
 /* case class HttpLogStringParser(ip: String,
