@@ -20,7 +20,7 @@ object PartitionByStatusCode {
     val sc = new SparkContext(conf)
 
     val input = sc.textFile("/path/to/LogFile")
-    val statusCode = input.map(line => getStatusCode(line)).collect.distinct  // get all the unique status codes
+    val statusCode = input.map(line => getStatusCode(line)).collect.distinct  // get all the unique status codes, this RDD might exceed the executer JVM size
     // this makes sure that each key goes to its own partition, the keys are status code
     val partitionedInput = input.map(line => (line.split(" ")(7),line)).partitionBy(new StatusCodePartitioner(statusCode.length))
   }
