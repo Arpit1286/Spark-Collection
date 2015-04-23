@@ -3,6 +3,8 @@ package common.parsers
 import com.github.nscala_time.time.Imports._
 
 // takes in the logLine and can be called to return IP, timestamp, requestPage and statusCode as strings
+
+
 class HttpLogStringParser(logLine: String) {
   // Regex Pattern matching the logLine
   val pattern = """^([\d.]+) (\S+) (\S+) \[(.*)\] \"(.+?)\" (\d{3}) (\d+) \"(\S+)\" \"([^\"]+)\"$""".r
