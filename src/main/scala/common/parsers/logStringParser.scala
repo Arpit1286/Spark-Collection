@@ -1,5 +1,7 @@
 package common.parsers
 
+import com.github.nscala_time.time.Imports._
+
 case class logStringParser(ip: String, clientID: String, userID: String,
                            timeStamp: String, requestLine: String, statusCode: Int,
                             size: Long, referer: String, browserInfo: String)
@@ -14,6 +16,11 @@ object logStringParser {
 
     logStringParser(m.group(1), m.group(2),m.group(3),m.group(4),
       m.group(5),m.group(6).toInt, m.group(7).toLong, m.group(8), m.group(9))
+  }
+
+  def convertToDateTime(timeStamp: String): DateTime = {
+
+
   }
 
 }
