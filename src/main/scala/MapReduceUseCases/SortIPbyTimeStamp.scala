@@ -24,8 +24,8 @@ object SortIPbyTimeStamp {
   val input = sc.textFile("/path/to/LogFile").map(logStringParser.parseLogString).cache()
 
   // create a key value pair RDD
-  val IPTImeStampRDD = input.map(line => (line.ip, line.timeStamp))
-
+  val IPTImeStampRDD = input.map(line => ((line.ip, line.timeStamp),line))
+  val 
 
 
 
